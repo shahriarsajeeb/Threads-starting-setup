@@ -16,7 +16,11 @@ const postSchema = new mongoose.Schema(
     user: {
       type: Object,
     },
-    replies: [
+    likesNumber: {
+      type: Number,
+      default:0,
+    },
+    likes: [
       {
         userName: {
           type: String,
@@ -27,11 +31,27 @@ const postSchema = new mongoose.Schema(
         userAvatar: {
           type: String,
         },
-        reply: {
+      },
+    ],
+    replies: [
+      {
+        user: {
+          type: Object,
+        },
+        title: {
           type: String,
+        },
+        image: {
+          public_id: {
+            type: String,
+          },
+          url: {
+            type: String,
+          },
         },
         likesNumber: {
           type: Number,
+          default:0,
         },
         likes: [
           {
@@ -46,22 +66,6 @@ const postSchema = new mongoose.Schema(
             },
           },
         ],
-      },
-    ],
-    likesNumber: {
-      type: Number,
-    },
-    likes: [
-      {
-        userName: {
-          type: String,
-        },
-        userId: {
-          type: String,
-        },
-        userAvatar: {
-          type: String,
-        },
       },
     ],
   },
