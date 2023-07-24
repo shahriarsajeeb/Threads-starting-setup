@@ -19,9 +19,11 @@ const userSchema = new mongoose.Schema(
     avatar: {
       public_id: {
         type: String,
+        required: [true,"Please upload one profile picture!"],
       },
       url: {
         type: String,
+        required: [true,"Please upload one profile picture!"],
       },
     },
     followers: [
